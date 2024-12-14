@@ -27,7 +27,8 @@ for($i = 0 ;$i < count($pessoas);$i++)
     if($id == $pessoas[$i]['id'])
     {
         $pessoa = [
-            'nome' => $pessoas[$i]['id'],
+            'nome' => $pessoas[$i]['nome'],
+            'end' => $pessoas[$i]['endereco'],
             'id' => $id
         ];
         $tem = false;
@@ -66,9 +67,19 @@ else
 </head>
 <body>
     <?php
-    for($i = 0 ; $i< count($relatorios);$i++):
+    for($i = count($relatorios)-1 ; $i >= 0;$i--):
         if($relatorios[$i]["id"] == $pessoa["id"]):?>
-            <div><?php print $relatorios[$i]['temperatura']?></div>
+            <div>
+                <?php print $pessoa['nome']?>
+                <br>
+                <?php print $pessoa['end']?>
+                <br>
+                <?php print $relatorios[$i]['temperatura']?>
+                <br>
+                <?php print $relatorios[$i]['turbides']?>
+                <br>
+                <?php print $relatorios[$i]['data']?>
+            </div>
     <?php
         endif;
     endfor;
