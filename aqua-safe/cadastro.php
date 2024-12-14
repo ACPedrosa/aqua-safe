@@ -29,7 +29,18 @@ else
         $pessoas = array();
     }
 }
-$pessoas[] = $pessoa;
+$add = true;
+for($i = 0 ; $i < count($pessoas);$i++)
+{
+    if($pessoas[$i]['id'] == $pessoa['id'])
+    {
+        $add = false;
+    }
+}
+if($add)
+{
+    $pessoas[] = $pessoa;
+}
 $pessoas = json_encode($pessoas,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 file_put_contents(__DIR__."/data/pessoas.json",$pessoas);
 header("Location: dashboard.php?id=$id")
