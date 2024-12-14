@@ -5,7 +5,8 @@ $temperatura = $_GET['temp'];
 $relatorio = [
     'id' => $id,
     'turbides' => $turbides,
-    'temperatura' => $temperatura
+    'temperatura' => $temperatura,
+    'data' => date("d/m/Y H:i:s")
 ];
 if (!file_exists(__DIR__.'/data'))
 {
